@@ -51,4 +51,5 @@ esac
 done
 }
 menu
+exit
 #fim
