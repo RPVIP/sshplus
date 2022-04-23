@@ -36,16 +36,14 @@ sudo firewall-cmd --zone=public --list-ports
 
 echo ""
 
+echo ""
+	read -p "Tudo pronto selecione para volra ao menu? [s]: " -e -i n resposta
+	if [[ "$resposta" = 's' ]]; then
+	echo ""
+	
 		echo "As configurações de portas foram adicionadas com sucesso."
 		echo ""
 	else
 		echo ""
 		echo "A instalação foi cancelada pelo usuário!"
 		echo ""
-		
-		echo ""
-	read -p "Tudo pronto selecione para volra ao menu? [s]: " -e -i n resposta
-	if [[ "$resposta" = 's' ]]; then
-	echo ""
-	fi
-fi
