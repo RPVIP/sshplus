@@ -42,3 +42,6 @@ echo ""
 		echo ""
 		echo "A instalação foi cancelada pelo usuário!"
 		echo ""
+fi
+fi
+exit
