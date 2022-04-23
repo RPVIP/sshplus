@@ -35,6 +35,7 @@ sudo firewall-cmd --reload &&
 sudo firewall-cmd --zone=public --list-ports
 
 echo ""
+clear
 		echo "As configurações de portas foram adicionadas com sucesso."
 		echo ""
 	else
@@ -43,4 +44,3 @@ echo ""
 		echo ""
 	fi
 fi
-exit
