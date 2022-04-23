@@ -12,7 +12,7 @@ echo -e "\E[44;1;37m Esse script ira liberar as portas: \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 echo""
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "\E[44;1;37m 80 8080 8799 1194 81 443 442 \E[0m"
+echo -e "\E[44;1;37m 80 8080 8888 8799 1194 81 443 442 \E[0m"
 echo -e "\033[0;34m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 
 echo ""
@@ -31,6 +31,7 @@ sudo firewall-cmd --zone=public --permanent --add-port=443/tcp &&
 sudo firewall-cmd --zone=public --permanent --add-port=81/tcp &&
 sudo firewall-cmd --zone=public --permanent --add-port=442/tcp &&
 sudo firewall-cmd --zone=public --permanent --add-port=8799/tcp &&
+sudo firewall-cmd --zone=public --permanent --add-port=8888/tcp &&
 sudo firewall-cmd --reload &&
 sudo firewall-cmd --zone=public --list-ports
 
