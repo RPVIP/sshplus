@@ -42,6 +42,7 @@ echo ""
 		echo ""
 		echo "A instalação foi cancelada pelo usuário!"
 		echo ""
+		echo -ne "\n\033[1;31mENTER \033[1;33mpara retornar ao \033[1;32mMENU!\033[0m"; read
 fi
 fi
 exit
