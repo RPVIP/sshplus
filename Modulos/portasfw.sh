@@ -42,5 +42,10 @@ echo ""
 		echo ""
 		echo "A instalação foi cancelada pelo usuário!"
 		echo ""
+		
+		echo ""
+	read -p "Tudo pronto selecione para volra ao menu? [s]: " -e -i n resposta
+	if [[ "$resposta" = 's' ]]; then
+	echo ""
 	fi
 fi
