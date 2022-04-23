@@ -49,7 +49,6 @@ echo ""
 clear
 esac
 done
-}
 menu
 exit
 #fim
