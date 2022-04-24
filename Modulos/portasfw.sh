@@ -23,7 +23,7 @@ echo ""
 	if [[ "$resposta" = 's' ]]; then
 	echo ""
 
-sudo iptables -F &&
+
 sudo apt install firewalld &&
 sudo firewall-cmd --zone=public --permanent --add-port=80/tcp &&
 sudo firewall-cmd --zone=public --permanent --add-port=8080/tcp &&
