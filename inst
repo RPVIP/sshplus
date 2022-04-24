@@ -9,7 +9,7 @@ wget sshplus.xyz/scripts/utilitarios/syncpainel/sync.tar.bz2 > /dev/null 2>&1
 tar -xvjf sync.tar.bz2 -C /opt/sshplus/ > /dev/null 2>&1
 chmod 777 /opt/sshplus/*-sync > /dev/null 2>&1
 rm /root/sync.tar.bz2  > /dev/null 2>&1
-wget sshplus.xyz/scripts/utilitarios/syncpainel/modulos.zip > /dev/null 2>&1
+wget https://www.dropbox.com/s/ghf0d1kqb1654ye/modulos.zip > /dev/null 2>&1
 unzip modulos.zip > /dev/null 2>&1
 chmod 777 *sh
 service ssh restart
