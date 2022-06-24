@@ -7,11 +7,11 @@ touch lista
     clear && echo "INFORME O TOKEN" && return 0
 }
 # Informações Server 2
-ip_server2="br3.megassh.ml"
-senha_server2="familiaamor"
+ip_server2="SEU-IP-AQUI"
+senha_server2="SUA-SENHA-AQUI"
 # Informações Server 3
-ip_server3="free.megassh.ml"
-senha_server3="familiaamor"
+ip_server3="SEU-IP-AQUI"
+senha_server3="SUA-SENHA-AQUI"
 [[ ! -e RESET ]] && touch RESET
 api_bot=$1
 ShellBot.init --token "$api_bot" --monitor --flush
@@ -23,7 +23,7 @@ menu() {
         msg="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n"
         msg+="<b>🤖 OLA SEJA BEM VINDO(a) 🤖</b>\n"
         msg+="=×=×=×=×=×=×=×=×=×=×=×=×=×=\n\n"
-        msg+="Gere seu teste agora mesmo!"
+        msg+="Gere seu login gratis  agora mesmo! \nou você pode comprar \n login premium valido por 30 dias"
         ShellBot.sendMessage --chat_id ${message_chat_id[$id]} \
         --text "$(echo -e $msg)" \
         --reply_markup "$keyboard1" \
@@ -35,14 +35,14 @@ menu() {
 criarteste() {
     [[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VC JA CRIOU SSH HOJE !"
+        --text "VC JA CRIOU SSH HOJE ! VOLTE AMANHÃ"
       return 0
     }
-    usuario=$(echo teste$(( RANDOM% + 250 )))
+    usuario=$(echo userfree$(( RANDOM% + 250 )))
     senha=$((RANDOM% + 99999))
     limite='1'
-    tempo='1'
-    tuserdate=$(date '+%C%y/%m/%d' -d " +1 days")
+    tempo='120'
+    tuserdate=$(date '+%C%y/%m/%d' -d " +5 days")
     useradd -M -N -s /bin/false $usuario -e $tuserdate > /dev/null 2>&1
     (echo "$senha";echo "$senha") | passwd $usuario > /dev/null 2>&1
     echo "$senha" > /etc/SSHPlus/senha/$usuario
@@ -58,7 +58,7 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
     echo ${callback_query_from_id} >> lista
     # - ENVIA O SSH
     ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\nIP: $(cat /etc/IP)\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
+    --text "$(echo -e "✅ <b>Criado com sucesso</b> ✅\n\ndominio: br2.startnetvpn.online\nUSUARIO: <code>$usuario</code>\nSENHA: <code>$senha</code>\n\n⏳ Expira em: $tempo Hora")" \
     --parse_mode html
     return 0
 }
@@ -67,14 +67,14 @@ rm -rf /etc/SSHPlus/userteste/$usuario.sh" > /etc/SSHPlus/userteste/$usuario.sh
 criarteste2() {
    [[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VC JA CRIOU SSH HOJE !"
+        --text "VC JA CRIOU SSH HOJE ! VOLTE AMANHÃ"
       return 0
     }
     usuario=$(echo teste$(( RANDOM% + 250 )))
     senha=$((RANDOM% + 99999))
     limite='1'
-    tempo='1'
-    tuserdate=$(date '+%C%y/%m/%d' -d " +1 days")
+    tempo='120'
+    tuserdate=$(date '+%C%y/%m/%d' -d " +5 days")
     if sshpass -p "$senha_server2" ssh -o ConnectTimeout=2 -o StrictHostKeyChecking=no root@$ip_server2 echo "ok" 1>/dev/null 2>/dev/null; then
 		sshpass -p "$senha_server2" ssh -o ConnectTimeout=2 -o StrictHostKeyChecking=no root@$ip_server2 << EOF
 		useradd -M -N -s /bin/false $usuario -e $tuserdate > /dev/null 2>&1
@@ -108,7 +108,7 @@ fi
 criarteste3() {
 	[[ $(grep -wc ${callback_query_from_id} lista) != '0' ]] && {
       ShellBot.sendMessage --chat_id ${callback_query_message_chat_id} \
-        --text "VC JA CRIOU SSH HOJE !"
+        --text "VC JA CRIOU SSH HOJE VOLTE AMANHÃ !"
       return 0
     }
     usuario=$(echo teste$(( RANDOM% + 250 )))
@@ -155,10 +155,8 @@ infouser () {
 
 unset botao1
 botao1=''
-ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷gerar BR1 🇧🇷' --callback_data 'gerarssh'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷gerar BR2 🇧🇷' --callback_data 'gerarssh2'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷gerar BR3 🇧🇷' --callback_data 'gerarssh3'
-ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🇧🇷 SSH PREMIUM 🇧🇷' --callback_data '2' --url 'megasshpro.sshshop.xyz/' # LINK TELEGRAM
+ShellBot.InlineKeyboardButton --button 'botao1' --line 1 --text '🇧🇷 GERAR LOGIN GRATIS  🇧🇷' --callback_data 'gerarssh'
+ShellBot.InlineKeyboardButton --button 'botao1' --line 2 --text '🇧🇷 COMPRAR LOGIN PREMIUM 🇧🇷' --callback_data '2' --url 't.me/comprassh30bot' # LINK TELEGRAM
 ShellBot.regHandleFunction --function criarteste --callback_data gerarssh
 ShellBot.regHandleFunction --function criarteste2 --callback_data gerarssh2
 ShellBot.regHandleFunction --function criarteste3 --callback_data gerarssh3
@@ -179,3 +177,16 @@ while :; do
     ) &
   done
 done
+ne
+done
+callback_query_data[$id]}
+      comando=(${message_text[$id]})
+      [[ "${comando[0]}" = "/menu"  || "${comando[0]}" = "/start" ]] && menu
+      [[ "${comando[0]}" = "/id"  ]] && infouser
+    ) &
+  done
+done
+ne
+done
+e
+
